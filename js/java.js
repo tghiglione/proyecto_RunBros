@@ -32,3 +32,38 @@ let repeticiones=parseInt(prompt("ingresa un numero de repeticiones: "));
 for(let i=0;i<repeticiones;i++){
     alert("HOLA!");
 }
+/* compras */
+alert("ejercicio carrito de compras");
+
+let cantidad= 0;
+let precio=0;
+let precioTotal=0;
+
+alert(`lista de precios:
+    shampoo=500
+    acondicionador=650
+    ambos=1000`);
+
+let entrada=prompt("ingrese un producto: shampoo, acondicionador o ambos: ").toLowerCase();
+
+do{
+    switch(entrada){
+        case "shampoo":
+            precio=500;
+            cantidad++;
+            break;
+        case "acondicionador":
+            precio=650;
+            cantidad++
+            break;
+        case "ambos":
+            precio=1000;
+            cantidad=cantidad+2;
+            break;
+        default:
+            alert("no ingreso un articulo valido");
+    }
+    precioTotal+=precio;
+    alert(`articulos totales= ${cantidad}, precio total= ${precioTotal}`);
+    entrada=prompt("esc para salir o seleccione nuevamente un articulo: shampoo, acondicionador o ambos");
+}while(entrada!="esc");

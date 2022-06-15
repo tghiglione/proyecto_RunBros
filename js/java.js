@@ -1,69 +1,94 @@
-/* pedir un numero, sumarle otro en cada repeticion realizando una salida por resultado */
+/* CALCULADORA DE COSTOS DE PRODUCTOS SELECCIONADOS POR EL USUARIO */
 
-alert("EJERCICIO 1");
-
-let numeroDeSuma=parseInt(prompt("cuantas sumas realizara?"));
-let numero1= parseInt(prompt("Ingrese un numero:"));
-
-for(let i=0;i<numeroDeSuma;i++){
-    let numero2=parseInt(prompt("ingrese otro numero para sumarlo: "));
-    let resultado= numero1 + numero2;
-    alert(`la suma entre ${numero1} y ${numero2}  es: ${resultado}`);
-    numero1=resultado;
-}
-
-/* pedir un texto, concatenar un valor en cada repeticion realizando una salida por resultado hasta que se ingrese esc */
-
-alert("EJERCICIO 2");
-
-let frase=prompt("ingrese una palabra/frase:");
-
-while(frase!="ESC"){
-    alert("la frase concatenada es: "+frase);
-    frase=prompt("ESC para salir o una frase para concatenar: ");
-}
-
-/* pedir un numero y poner HOLA la cantidad de veces que diga el numero pedido */
-
-alert("EJERCICIO 3");
-
-let repeticiones=parseInt(prompt("ingresa un numero de repeticiones: "));
-
-for(let i=0;i<repeticiones;i++){
-    alert("HOLA!");
-}
-/* compras */
-alert("ejercicio carrito de compras");
-
-let cantidad= 0;
-let precio=0;
-let precioTotal=0;
-
-alert(`lista de precios:
-    shampoo=500
-    acondicionador=650
-    ambos=1000`);
-
-let entrada=prompt("ingrese un producto: shampoo, acondicionador o ambos: ").toLowerCase();
-
-do{
-    switch(entrada){
-        case "shampoo":
-            precio=500;
-            cantidad++;
-            break;
-        case "acondicionador":
-            precio=650;
-            cantidad++
-            break;
-        case "ambos":
-            precio=1000;
-            cantidad=cantidad+2;
-            break;
-        default:
-            alert("no ingreso un articulo valido");
+function costos(){
+    let precio=0;
+    let precioTotal=0;
+    let entrada=true;
+    while(entrada){
+        let producto=prompt("ingrese que galletita desea: melba/oreo/pepitos").toLowerCase();
+        switch(producto){
+            case "oreo":
+                precio=100;
+                break;
+            case "pepitos":
+                precio=150;
+                break;
+            case "melba":
+                precio=50;
+                break;
+            default:
+                alert("el producto no se encuentra en stock");
+        }
+        precioTotal+=precio;
+        entrada=confirm("desea continuar comprando?")
     }
-    precioTotal+=precio;
-    alert(`articulos totales= ${cantidad}, precio total= ${precioTotal}`);
-    entrada=prompt("esc para salir o seleccione nuevamente un articulo: shampoo, acondicionador o ambos");
-}while(entrada!="esc");
+    alert(`el monto total de la compra es de ${precioTotal}`);
+}
+
+/* CALCULADORA DE CUOTAS PARA  PRODUCTOS DE UN LOCAL DE ELECTRODOMESTICOS Y DE DESCUENTO 25% +IVA */
+
+const precioComputadora=5000;
+const precioHeladera=10000;
+const precioHorno= 9000;
+const precioCelular=4000;
+
+function pagoEnCuotas(precioProducto){
+    let cuotas=parseInt(prompt("ingrese en cuantas cuotas desea pagar: 3/6/12"));
+    let precioFinal=0;
+    if(cuotas===3){
+        precioFinal= precioProducto/3;
+    }else if(cuotas===6){
+        precioFinal= precioProducto/6;
+    }else if(cuotas===12){
+        precioFinal= precioProducto/12;
+    }else{
+        alert("no disponemos de dicha/s cuota/s");
+    }
+    alert(`el precio de cada cuota es de ${precioFinal} en un total de ${cuotas} cuotas`);
+}
+
+function descuento(precioProducto){
+    let descuento= precioProducto*0.25;
+    let iva= precioProducto*0.21;
+    precioProducto=precioProducto-descuento+iva;
+    alert(`el precio final con IVA y descuento del 25% del producto seleccionado es de ${precioProducto}`);
+}
+
+/* CALCULADORA DE TIEMPO DE ESPERA AL SACAR UN TURNO */
+
+function tiempoEspera(){
+    let entrada=true;
+    let contador=0;
+    let demora=0;
+    while(entrada){
+        let turno=prompt("ingrese su nombre para reservar un turno: ")
+        if(contador===10){ //no da mas de 10 turnos
+            alert("perdon, nos quedamos sin turnos");
+            break;
+        }
+        contador++;
+        alert(`hola ${turno} tu turno fue reservado exitosamente! Tenes una espera de ${demora} minutos`);
+        demora+=15;
+        entrada=confirm("desea un turno?");
+    }
+}
+
+/* CALCULADORA EDAD PROMEDIO DE PERSONAS REGISTRADAS */
+
+function edadPromedio(){
+    let edadTotal=0;
+    let contador=0;
+    let entrada=true;
+    while(entrada){
+        let edad=parseInt(prompt("ingrese su edad: "));
+        if(!isNaN(edad)){
+            edadTotal+=edad;
+            contador++;
+        }else{
+            alert("no ha ingresado un numero, intente nuevamente");
+        }
+        entrada=confirm("desea ingresar otra edad?")
+    }
+    let promedio=edadTotal/contador;
+    alert(`la edad promedio es ${promedio}`);
+}

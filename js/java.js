@@ -50,8 +50,8 @@ function pagoEnCuotas(precioProducto){
 function descuento(precioProducto){
     let descuento= precioProducto*0.25;
     let iva= precioProducto*0.21;
-    precioProducto=precioProducto-descuento+iva;
-    alert(`el precio final con IVA y descuento del 25% del producto seleccionado es de ${precioProducto}`);
+    let precioFinal=precioProducto-descuento+iva;
+    alert(`el precio final con IVA y descuento del 25% del producto seleccionado es de ${precioFinal}`);
 }
 
 /* CALCULADORA DE TIEMPO DE ESPERA AL SACAR UN TURNO */
@@ -92,3 +92,21 @@ function edadPromedio(){
     let promedio=edadTotal/contador;
     alert(`la edad promedio es ${promedio}`);
 }
+
+/* LLAMADO A TODAS LAS FUNCIONES */
+
+costos();
+
+pagoEnCuotas(precioCelular);
+pagoEnCuotas(precioComputadora);
+pagoEnCuotas(precioHeladera);
+pagoEnCuotas(precioHorno);
+
+descuento(precioCelular);
+descuento(precioComputadora);
+descuento(precioHeladera);
+descuento(precioHorno);
+
+tiempoEspera();
+
+edadPromedio();

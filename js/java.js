@@ -36,8 +36,13 @@ function agregarDescuento(){
     }
     return zapatillasEnStock;
 }
+function reiniciarStock(array){
+    array.splice(0,array.length);
+    return array;
+}
 
 agregarStock(zapatillasEnStock);
 agregarIva();
 agregarDescuento();
-console.log(zapatillasEnStock); 
+console.log(zapatillasEnStock);
+

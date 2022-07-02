@@ -1,10 +1,19 @@
 const zapatillasEnStock=[
-    {marca:"adidas", precio:10000},
-    {marca:"nike", precio:12000},
-    {marca:"puma", precio:10000},
+    {id:1,nombre:"Adidas eq21",img:"../imagenes/adidas-eq21.jpg", precio:10000},
+    {id:2,nombre:"Adidas pv18",img:"../imagenes/adidas-pv18.jpg", precio:12000},
+    {id:3,nombre:"Adidas samba",img:"../imagenes/adidas-samba.png", precio:13500},
+    {id:4,nombre:"Nike air max 97",img:"../imagenes/air-max-97.jpg", precio:15000},
+    {id:5,nombre:"Nike air max 1",img:"../imagenes/nike-air-max-1.jpg", precio:9000},
+    {id:6,nombre:"Nike force",img:"../imagenes/nike-force.jpg", precio:11000},
+    {id:7,nombre:"Puma r78",img:"../imagenes/puma-r78.jpg", precio:10000},
+    {id:8,nombre:"Puma rider",img:"../imagenes/puma-rider.jpg", precio:9500},
+    {id:9,nombre:"Puma xray",img:"../imagenes/puma-xray.jpg", precio:10500},
+    {id:10,nombre:"Fila disruptor",img:"../imagenes/fila-disruptor.jpg", precio:8000},
+    {id:11,nombre:"Fila rippler",img:"../imagenes/fila-rippler.jpg", precio:9000},
+    {id:12,nombre:"Fila trend",img:"../imagenes/fila-trend.jpg", precio:11000}
 ];
 
-const precioConDescuento=zapatillasEnStock.map((elemento)=>{
+/* const precioConDescuento=zapatillasEnStock.map((elemento)=>{
     return{
             marca:elemento.marca,
             modelo:elemento.modelo,
@@ -57,4 +66,24 @@ function pagoEnCuotas(precio){
     alert(`el precio de cada cuota es de ${precioFinal} en un total de ${cuotas} cuotas`);
 };
 
-pagoEnCuotas(precioDeLaCompra);
+pagoEnCuotas(precioDeLaCompra); */
+
+const mostrarProductos= ()=>{
+    const contenedor=document.createElement("section");
+    contenedor.className="container tienda_lista";
+    zapatillasEnStock.forEach(producto=>{
+        let div=document.createElement("div");
+        div.className="card";
+        div.innerHTML=`<div class="card_imagen">
+        <img src="${producto.img}">
+        </div>
+        <span class="card_descripcion">${producto.nombre}</span>
+        <span class="card_precio">$${producto.precio}</span>
+        `;
+        contenedor.appendChild(div);
+    });
+    let main=document.querySelector(".main");
+    main.appendChild(contenedor);
+};
+
+mostrarProductos();

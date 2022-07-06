@@ -149,6 +149,9 @@
 textarea{
     resize: none;
 }
+.btn{
+    border: solid 2px #BF8D30;
+}
 /* TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA*/
 .tienda_titulo{
     font-size: 40px;
@@ -167,7 +170,7 @@ textarea{
 }
 .card{
     margin:10px;
-    border: solid 2px #BF8D30;
+    border: solid 2px black;
     flex-direction: column;
     justify-content: space-between;
 }

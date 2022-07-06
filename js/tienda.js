@@ -82,8 +82,9 @@ const mostrarProductos= ()=>{
         `;
         contenedor.appendChild(div);
     });
-    let main=document.querySelector(".main");
+    let main=document.querySelector(".tienda_main");
     main.appendChild(contenedor);
 };
 
 mostrarProductos();
+

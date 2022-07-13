@@ -80,8 +80,25 @@
         <div><input type="text" id="nombre" placeholder="Nombre"></div>
         <div><input type="email" id="email" placeholder="Email"></div>
         <div><textarea type="text" id="mensaje" placeholder="Mensaje" cols="22" rows="5"></textarea></div>
-        <input class="btn" type="submit" value="Enviar">
+        <input class="btn boton_formulario" type="submit" value="ENVIAR" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       </form>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Gracias por comunicarte!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="texto_valido">Hola en breve nos comunicaremos. Muchas gracias por contactarnos!!</sapn>
+              <p class="texto_invalido">No lleno todos los campos</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="container-fluid">

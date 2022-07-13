@@ -1,16 +1,21 @@
 const form=document.querySelector("#formulario");
 form.addEventListener("submit",validarForm);
 
+
 function validarForm(event){
     event.preventDefault();
-    let formulario=event.target;
-    let contenedor=document.querySelector(".contactanos");
-    let modal=document.createElement("div");
+    const textoValido=document.querySelector(".texto_valido");
+    const textoInvalido=document.querySelector(".texto_invalido");
     if(event.target[0].value=="" || event.target[1].value=="" || event.target[3].value==""){
-        alert("no completo todos los campos");
+        textoValido.className="texto_hide";
+        setTimeout(()=>{textoValido.className="texto_valido";},5000);
+            
     }else{
-        modal.innerHTML=`<h2> Gracias ${event.target[0].value} por comunicarte con nosotros</h2>
-                        <p>Nos comunicaremos a <b>${event.target[1].value}</b> en seguida!</p>`;
-    contenedor.appendChild(modal);
+        textoInvalido.className="texto_hide";
+        textoValido.innerText=`Hola ${event.target[0].value} en breve nos comunicaremos a ${event.target[1].value}. Muchas gracias por contactarnos!!`
+        setTimeout(()=>{
+            textoInvalido.className="texto_invalido";},5000);
     };
+    form.reset();
 }
+

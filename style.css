@@ -152,6 +152,9 @@ textarea{
 .btn{
     border: solid 2px #BF8D30;
 }
+.texto_hide{
+    display: none;
+}
 /* TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA*/
 .tienda_titulo{
     font-size: 40px;
@@ -169,29 +172,76 @@ textarea{
     margin-bottom: 15px;
 }
 .card{
-    margin:10px;
+    margin:15px;
     border: solid 2px black;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:space-around;
+    width: fit-content;
+    height: 400px;
 }
-.card_imagen img{
-    width: 400px;
-    height: 300px;
+.card img{
+    width: 270px;
+    height: 200px;
 }
-.card_descripcion{
-    align-self: center;
+.card-title{
+    text-align: center;
     font-size: 25px;
     font-family:'Spectral', serif; 
     font-weight: bold;
     padding: 5px;
 }
-.card_precio{
+.card-text{
     font-size: 20px;
     font-family:'Spectral', serif; 
     font-weight: bold;
     padding: 5px;
     color:#BF8D30;
-    margin-left: 10px;
+    margin: 0;
+}
+.card-body{
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.carrito_titulo{
+    font-size: 40px;
+    font-family:'Roboto Serif', serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+#carrito{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 0;
+}
+.iva{
+    font-size: 16px;
+}
+.carrito_total_precio{
+    font-weight: bold;
+    margin:0;
+}
+.botones_carrito{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+#vaciar_carrito{
+    padding:5px;
+    margin: 10px;
+    
+}
+#pagar_carrito{
+    padding:5px;
+    margin: 10px;
+    
 }
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER  */
 .footer{

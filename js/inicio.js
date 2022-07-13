@@ -6,7 +6,7 @@ function validarForm(event){
     event.preventDefault();
     const textoValido=document.querySelector(".texto_valido");
     const textoInvalido=document.querySelector(".texto_invalido");
-    if(event.target[0].value=="" || event.target[1].value=="" || event.target[3].value==""){
+    if((event.target[0].value=="" && event.target[1].value=="") || event.target[1].value=="" || event.target[3].value=="" || event.target[0].value=="" ||(event.target[0].value=="" && event.target[2].value=="")||(event.target[2].value=="" && event.target[1].value=="")){
         textoValido.className="texto_hide";
         setTimeout(()=>{textoValido.className="texto_valido";},5000);
             

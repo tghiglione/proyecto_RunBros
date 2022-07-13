@@ -236,12 +236,14 @@ textarea{
 #vaciar_carrito{
     padding:5px;
     margin: 10px;
-    
 }
 #pagar_carrito{
     padding:5px;
     margin: 10px;
-    
+}
+.precio_final{
+    color:#BF8D30;
+    font-style: italic;
 }
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER  */
 .footer{

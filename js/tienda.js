@@ -73,7 +73,7 @@ function mostrarTotal(){
     const totalDeLaCompra=total.reduce((acumulador,elemento)=>acumulador+elemento.precio,0) *1.21 ;
     let contenedor=document.querySelector(".carrito_titulo");
     contenedor.innerHTML=`<h2 class="carrito_titulo">CARRITO DE COMPRAS</h2>
-    <h3 class="carrito_total_precio">El precio total de la compra es de: $${totalDeLaCompra}</h3>
+    <h3 class="carrito_total_precio">El precio total de la compra es de: <span class="precio_final">$${totalDeLaCompra}</span></h3>
     <span class="iva"><b> *El precio total incluye IVA*</b></span>`;
 };
 

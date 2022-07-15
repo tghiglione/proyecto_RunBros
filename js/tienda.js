@@ -40,6 +40,14 @@ function agregarAlCarrito(id){
     let producto=zapatillasEnStock.find((elemento)=>elemento.id===id); 
     let productoEnCarrito=carrito.find((elemento)=>elemento.id===id); 
     productoEnCarrito ? productoEnCarrito.cantidad++ : carrito.push(producto);
+    Toastify({
+        text: 'Producto agregado al carrito!',
+        duration:2000,
+        style:{
+            color:'white',
+            background:"black"
+        }
+    }).showToast();
     mostrarCarrito();
 };
 
@@ -62,10 +70,29 @@ function mostrarCarrito(){
     mostrarTotal();
 };
 
-function eliminarDelCarrito(id){                        
-    let productoEnCarrito=carrito.find((elemento)=>elemento.id===id); 
-    productoEnCarrito.cantidad>1 ? productoEnCarrito.cantidad-- : carrito.splice(carrito.indexOf(productoEnCarrito),1);
-    mostrarCarrito();
+function eliminarDelCarrito(id){
+    Swal.fire({
+        title:'Desea eliminar el producto?',
+        icon:'warning',
+        showCancelButton:true,
+        position:'top',
+        confirmButtonText:'Si, quiero',
+        cancelButtonText:'No!'
+    }).then((result)=>{
+        if(result.isConfirmed){
+            let productoEnCarrito=carrito.find((elemento)=>elemento.id===id); 
+            productoEnCarrito.cantidad>1 ? productoEnCarrito.cantidad-- : carrito.splice(carrito.indexOf(productoEnCarrito),1);
+            Swal.fire({
+                title:'Producto eliminado!',
+                icon:'success',
+                position:'top',
+                timer:1500,
+                showConfirmButton:false
+            });
+        
+        mostrarCarrito();
+        }
+        })                     
 };
 
 function mostrarTotal(){
@@ -104,5 +131,29 @@ function guardarLocal(array){
 
 document.addEventListener("DOMContentLoaded",mostrarCarrito());
 
+
+const botonVaciarCarrito=document.querySelector("#vaciar_carrito");
+botonVaciarCarrito.addEventListener('click',()=>{
+    Swal.fire({
+        title:'Desea vaciar el carrito de compras?',
+        icon:'warning',
+        showCancelButton:true,
+        position:'top',
+        confirmButtonText:'Si, quiero',
+        cancelButtonText:'No!'
+    }).then((result)=>{
+        if(result.isConfirmed){
+            carrito.splice(0,carrito.length);
+            mostrarCarrito();
+            Swal.fire({
+                title:'Carrito vaciado correctamente',
+                icon:'success',
+                position:'top',
+                timer:2000,
+                showConfirmButton:false
+            });
+        };
+    });
+});
 
 

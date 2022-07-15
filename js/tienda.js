@@ -132,50 +132,70 @@ document.addEventListener("DOMContentLoaded",mostrarCarrito());
 
 const botonVaciarCarrito=document.querySelector("#vaciar_carrito");
 botonVaciarCarrito.addEventListener('click',()=>{
-    Swal.fire({
-        title:'Desea vaciar el carrito de compras?',
-        icon:'warning',
-        showCancelButton:true,
-        position:'top',
-        confirmButtonText:'Si, quiero',
-        cancelButtonText:'No!'
-    }).then((result)=>{
-        if(result.isConfirmed){
-            carrito.splice(0,carrito.length);
-            mostrarCarrito();
-            Swal.fire({
-                title:'Carrito vaciado correctamente',
-                icon:'success',
-                position:'top',
-                timer:2000,
-                showConfirmButton:false
-            });
-        };
-    });
+    if(carrito.length!==0){
+        Swal.fire({
+            title:'Desea vaciar el carrito de compras?',
+            icon:'warning',
+            showCancelButton:true,
+            position:'top',
+            confirmButtonText:'Si, quiero',
+            cancelButtonText:'No!'
+        }).then((result)=>{
+            if(result.isConfirmed){
+                carrito.splice(0,carrito.length);
+                mostrarCarrito();
+                Swal.fire({
+                    title:'Carrito vaciado correctamente',
+                    icon:'success',
+                    position:'top',
+                    timer:2000,
+                    showConfirmButton:false
+                });
+            };
+        });
+    }else{
+        Swal.fire({
+            title:'El carrito no posee productos',
+            icon:'error',
+            showConfirmButton:false,
+            timer:3000
+        });
+    }
 });
 
 const botonPagar=document.querySelector("#pagar_carrito");
 botonPagar.addEventListener('click',()=>{
     const total=calcularTotal();
     const precioFinal=total.reduce((acumulador,elemento)=>acumulador+elemento.precio,0) *1.21 ;
-    Swal.fire({
-        title:'Desea finalizar la compra?',
-        text:'El precio final es de $'+precioFinal,
-        icon:'question',
-        showCancelButton:true,
-        position:'top',
-        confirmButtonText:'Si, quiero',
-        cancelButtonText:'No!'
-    }).then((result)=>{
-        if(result.isConfirmed){
-            Swal.fire({
-                title:'Su compra ha sido realizada con exito!',
-                icon:'success',
-                timer:3000,
-                showConfirmButton:false
-            });
-            carrito.splice(0,carrito.length);
-            mostrarCarrito();
-        };
-    });
-})
+    if(carrito.length!==0){
+        Swal.fire({
+            title:'Desea finalizar la compra?',
+            text:'El precio final es de $'+precioFinal,
+            icon:'question',
+            showCancelButton:true,
+            position:'top',
+            confirmButtonText:'Si, quiero',
+            cancelButtonText:'No!'
+        }).then((result)=>{
+            if(result.isConfirmed){
+                Swal.fire({
+                    title:'Su compra ha sido realizada con exito!',
+                    icon:'success',
+                    timer:3000,
+                    showConfirmButton:false
+                });
+                carrito.splice(0,carrito.length);
+                mostrarCarrito();
+            };
+        });
+    }else{
+        Swal.fire({
+            title:'El carrito se encuentra vacio',
+            icon:'error',
+            showConfirmButton:false,
+            timer:2000
+            
+        });
+    }
+    
+});

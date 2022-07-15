@@ -152,9 +152,6 @@ textarea{
 .btn{
     border: solid 2px #BF8D30;
 }
-/* .texto_hide{
-    display: none;
-} */
 /* TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA TIENDA*/
 .tienda_titulo{
     font-size: 40px;
@@ -233,17 +230,27 @@ textarea{
     flex-wrap: nowrap;
     align-items: center;
 }
-#vaciar_carrito{
+.botones_carrito div{
     padding:5px;
-    margin: 10px;
-}
-#pagar_carrito{
-    padding:5px;
-    margin: 10px;
+    margin: 5px;
 }
 .precio_final{
     color:#BF8D30;
     font-style: italic;
+}
+.botones_carrito_pagar{
+    text-decoration: none;
+    color: white;
+}
+.botones_carrito_pagar:hover{
+    color: white;
+}
+/* PAGAR PAGAR PAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGAR */
+.finalizar_compra{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
 }
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER  */
 .footer{

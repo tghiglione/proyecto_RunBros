@@ -168,7 +168,7 @@ textarea{
     padding: 0;
     margin-bottom: 15px;
 }
-.card{
+.card_tienda{
     margin:15px;
     border: solid 2px black;
     flex-direction: column;
@@ -176,18 +176,31 @@ textarea{
     width: fit-content;
     height: 400px;
 }
-.card img{
+.card_tienda:hover{
+    box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
+    -webkit-box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
+    -moz-box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
+}
+.card_tienda_body{
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.card_tienda img{
     width: 270px;
     height: 200px;
+    align-self: center;
 }
-.card-title{
+.card_tienda_body_titulo{
     text-align: center;
     font-size: 25px;
     font-family:'Spectral', serif; 
     font-weight: bold;
     padding: 5px;
 }
-.card-text{
+.card_tienda_body_precio{
     font-size: 20px;
     font-family:'Spectral', serif; 
     font-weight: bold;
@@ -195,13 +208,7 @@ textarea{
     color:#BF8D30;
     margin: 0;
 }
-.card-body{
-    padding:10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-}
+
 .carrito_titulo{
     font-size: 40px;
     font-family:'Roboto Serif', serif;
@@ -245,12 +252,40 @@ textarea{
 .botones_carrito_pagar:hover{
     color: white;
 }
-/* PAGAR PAGAR PAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGARPAGAR PAGAR */
-.finalizar_compra{
-    display: flex;
+.card_carrito{
     flex-direction: row;
-    justify-content:center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+}
+.card_carrito_body_titulo{
+    text-align: center;
+    font-size: 25px;
+    font-family:'Spectral', serif; 
+    font-weight: bold;
+    padding: 5px;
+}
+.card_carrito_body_precio{
+    font-size: 20px;
+    font-family:'Spectral', serif; 
+    font-weight: bold;
+    padding: 5px;
+    color:#BF8D30;
+    margin: 0;
+}
+.card_carrito_body_cantidad{
+    font-size: 20px;
+    font-family:'Spectral', serif; 
+    font-weight: bold;
+    padding: 5px;
+    color:#BF8D30;
+    margin: 0;
+}
+.boton_carrito{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
 }
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER  */
 .footer{

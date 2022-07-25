@@ -8,18 +8,20 @@ const mostrarProductos= async ()=>{
     const stock=await resp.json();
     stock.forEach(producto=>{
         let div=document.createElement("div");
-        div.innerHTML=`<div class="card" style="width: 18rem;">
+        div.innerHTML=`<div class="card card_tienda" style="width: 18rem;">
         <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-        <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text">$${producto.precio}</p>
-          <button class="btn boton_carrito" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</a>
+        <div class="card_tienda_body">
+          <h5 class="card_tienda_body_titulo">${producto.nombre}</h5>
+          <p class="card_tienda_body_precio">$${producto.precio}</p>
+          <button class="btn" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</a>
         </div>
       </div>`;
         contenedor.appendChild(div);
     });
     productosEnTienda.appendChild(contenedor);
 };
+
+mostrarProductos();
 
 async function agregarAlCarrito(id){    
     const resp=await fetch("/stock.json");
@@ -42,14 +44,13 @@ function mostrarCarrito(){
     let productosEnCarrito= document.querySelector('#carrito');
     let productoSeleccionado = '';                              
     carrito.forEach((producto)=>{                                 
-        productoSeleccionado+=`<div class="card" style="width: 18rem;">  
-        <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-        <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text">$${producto.precio}</p>
-          <p class="card-text">Cantidad: ${producto.cantidad}</p>
-          <button class="btn btn-danger" onclick="eliminarDelCarrito(${producto.id})">Eliminar del carrito</a>
+        productoSeleccionado+=`<div class="card card_carrito" style="width: 18rem;">  
+        <div class="card_carrito_body">
+          <h5 class="card_carrito_body_titulo">${producto.nombre}</h5>
+          <p class="card_carrito_body_precio">$${producto.precio}</p>
+          <p class="card_carrito_body_cantidad">Cantidad: ${producto.cantidad}</p>
         </div>
+        <span><button class="btn btn-danger" onclick="eliminarDelCarrito(${producto.id})"><i class="fa-solid fa-trash-can"></i></a></span>
       </div>`;                                                 
     });
     productosEnCarrito.innerHTML=productoSeleccionado;         
@@ -114,10 +115,7 @@ function guardarLocal(array){
     }
 }; 
 
-document.addEventListener("DOMContentLoaded",()=>{
-    mostrarProductos();
-    mostrarCarrito()
-});
+document.addEventListener("DOMContentLoaded", mostrarCarrito())
 
 
 const botonVaciarCarrito=document.querySelector("#vaciar_carrito");

@@ -1,0 +1,37 @@
+.header{
+    border-bottom: solid 1px $color-secundario;
+}
+.menu{
+    justify-content: space-evenly;
+    &_lista{
+        width: 40%;
+        justify-content: space-between;
+        &_item{
+            text-decoration: none;
+            font-size: 28px;
+            padding: 15px;
+            font-family: $titulo;
+            font-weight: bold;
+            &:hover{
+                transform: scale(1.2);
+                color: $color-secundario;
+            }
+            & a{
+                color:$color-secundario;
+                &:hover{
+                    color:$color-secundario;
+                }
+            }
+        }
+    }
+}
+.logo{
+    width: 300px;
+    padding: 0;
+    & img{
+        width: 300px;
+    }
+}
+.boton{
+    background-color: $color-secundario;
+}

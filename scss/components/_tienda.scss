@@ -1,0 +1,120 @@
+.tienda_titulo{
+    font-size: 40px;
+    font-family:$titulo;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+.tienda_lista{
+    @extend %flex-row;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.card_tienda{
+    margin:15px;
+    border: solid 2px $color-secundario;
+    flex-direction: column;
+    justify-content:space-around;
+    width: fit-content;
+    height: 400px;
+    &:hover{
+        box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
+        -webkit-box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
+        -moz-box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
+    }
+    & img{
+        width: 270px;
+        height: 200px;
+        align-self: center;
+    }
+    &_body{
+        padding:10px;
+        @extend %flex-column;
+        justify-content: space-around;
+        &_titulo{
+            text-align: center;
+            font-size: 25px;
+            @extend %parrafo;
+            padding: 5px;
+        }
+        &_precio{
+            font-size: 20px;
+            @extend %parrafo;
+            padding: 5px;
+            color:$color-principal;
+            margin: 0;
+        }
+    }
+}
+.carrito_titulo{
+    font-size: 40px;
+    font-family:$titulo;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+#carrito{
+    @extend %flex-row;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 0;
+}
+.iva{
+    font-size: 16px;
+}
+.carrito_total_precio{
+    font-weight: bold;
+    margin:0;
+}
+.botones_carrito{
+    @extend %flex-column;
+    align-items: center;
+    & div{
+        padding:5px;
+        margin: 5px;
+    }
+}
+.precio_final{
+    color:$color-principal;
+    font-style: italic;
+}
+.botones_carrito_pagar{
+    text-decoration: none;
+    color: white;
+    &:hover{
+        color: white;
+    }
+}
+.card_carrito{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+    &_body_titulo{
+        text-align: center;
+        font-size: 25px;
+        @extend %parrafo;
+        padding: 5px;
+    }
+    &_body_precio{
+        font-size: 20px;
+        @extend %parrafo;
+        padding: 5px;
+        color:$color-principal;
+        margin: 0;
+    }
+    &_body_cantidad{
+        font-size: 20px;
+        @extend %parrafo;
+        padding: 5px;
+        color:$color-principal;
+        margin: 0;
+    }
+}
+.boton_carrito{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}

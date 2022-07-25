@@ -1,0 +1,45 @@
+.footer{
+    width: 100%;
+    height: fit-content;
+    border-top: solid 1px $color-secundario;
+    @extend %margin-padding;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.contacto{
+    text-align: center;
+    padding: 10px;
+    &_titulo{
+        font-size: 30px;
+        @extend %parrafo;
+    }
+    &_lista{
+        list-style: none;
+        @extend %margin-padding;
+        font-size: 18px;
+        @extend %parrafo;
+    }
+}
+.redes{
+    text-align: center;
+    padding:15px;
+    &_titulo{
+        padding: 10px;
+        @extend %parrafo;
+        font-size: 30px; 
+    }
+    &_lista{
+        text-align: center;  
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        @extend %margin-padding;
+    }
+    &_logo{
+        color:$color-principal;
+    }
+}
+
+

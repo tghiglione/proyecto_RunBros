@@ -1,0 +1,91 @@
+.titulo{
+    font-size: 48px;
+    text-align: center;
+    border: solid 1px $color-secundario;
+    padding:15px;
+    margin:10px;
+    color:white;
+    background-color: $color-secundario;
+    border-radius: 10px;
+    font-family: $titulo;
+}
+.quienes_somos{
+    padding: 0;
+    & p{
+        font-size: 22px;
+        padding:15px;
+        margin:10px;
+        @extend %parrafo;
+    }
+}
+.items{
+    @extend %flex-row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: $color-secundario;
+    border-radius: 5px;
+    margin: 10px;
+    &_lista{
+        text-align: center;
+        padding: 15px;
+        &_titulo{
+            padding:15px;
+            font-family:$titulo;
+            font-size: 24px;
+            font-weight: bold;
+            color:white;
+        
+        }
+        &_logo{
+            color:$color-principal;
+        }
+    }
+}
+.ubicacion{
+    padding: 0;
+    &_titulo{
+        font-size: 40px;
+        @extend %parrafo;
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+    }
+    &_subtitulo{
+        font-size: 28px;
+        text-align: center;
+        @extend %parrafo;
+        padding: 10px;
+        margin: 0;
+    }
+    &_mapa{
+        width: 100%;
+        height: 300px;
+    }
+}
+.contactanos{
+    @extend %flex-column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    &_titulo{
+        font-size: 32px;
+        font-family:$titulo;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+#formulario{
+    padding:40px;
+    border:solid 3px $color-principal ;
+    border-radius: 5px;  
+    & div{
+        margin: 10px;
+    } 
+}
+textarea{
+    resize: none;
+}
+.btn{
+    border: solid 2px $color-principal;
+}

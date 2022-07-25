@@ -1,0 +1,257 @@
+.footer, .contacto_lista, .redes_lista {
+  margin: 0;
+  padding: 0; }
+
+.contactanos, .card_tienda_body, .botones_carrito {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; }
+
+.items, .tienda_lista, #carrito {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.quienes_somos p, .ubicacion_titulo, .ubicacion_subtitulo, .contacto_titulo, .contacto_lista, .redes_titulo, .card_tienda_body_titulo, .card_tienda_body_precio, .card_carrito_body_titulo, .card_carrito_body_precio, .card_carrito_body_cantidad {
+  font-family: "Spectral", serif;
+  font-weight: bold; }
+
+.header {
+  border-bottom: solid 1px black; }
+
+.menu {
+  justify-content: space-evenly; }
+  .menu_lista {
+    width: 40%;
+    justify-content: space-between; }
+    .menu_lista_item {
+      text-decoration: none;
+      font-size: 28px;
+      padding: 15px;
+      font-family: "Roboto Serif", serif;
+      font-weight: bold; }
+      .menu_lista_item:hover {
+        transform: scale(1.2);
+        color: black; }
+      .menu_lista_item a {
+        color: black; }
+        .menu_lista_item a:hover {
+          color: black; }
+
+.logo {
+  width: 300px;
+  padding: 0; }
+  .logo img {
+    width: 300px; }
+
+.boton {
+  background-color: black; }
+
+.titulo {
+  font-size: 48px;
+  text-align: center;
+  border: solid 1px black;
+  padding: 15px;
+  margin: 10px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  font-family: "Roboto Serif", serif; }
+
+.quienes_somos {
+  padding: 0; }
+  .quienes_somos p {
+    font-size: 22px;
+    padding: 15px;
+    margin: 10px; }
+
+.items {
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: black;
+  border-radius: 5px;
+  margin: 10px; }
+  .items_lista {
+    text-align: center;
+    padding: 15px; }
+    .items_lista_titulo {
+      padding: 15px;
+      font-family: "Roboto Serif", serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: white; }
+    .items_lista_logo {
+      color: #BF8D30; }
+
+.ubicacion {
+  padding: 0; }
+  .ubicacion_titulo {
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    margin: 0; }
+  .ubicacion_subtitulo {
+    font-size: 28px;
+    text-align: center;
+    padding: 10px;
+    margin: 0; }
+  .ubicacion_mapa {
+    width: 100%;
+    height: 300px; }
+
+.contactanos {
+  align-items: center;
+  text-align: center;
+  padding: 10px; }
+  .contactanos_titulo {
+    font-size: 32px;
+    font-family: "Roboto Serif", serif;
+    font-weight: bold;
+    margin-bottom: 20px; }
+
+#formulario {
+  padding: 40px;
+  border: solid 3px #BF8D30;
+  border-radius: 5px; }
+  #formulario div {
+    margin: 10px; }
+
+textarea {
+  resize: none; }
+
+.btn {
+  border: solid 2px #BF8D30; }
+
+.footer {
+  width: 100%;
+  height: fit-content;
+  border-top: solid 1px black;
+  align-items: center;
+  justify-content: space-evenly; }
+
+.contacto {
+  text-align: center;
+  padding: 10px; }
+  .contacto_titulo {
+    font-size: 30px; }
+  .contacto_lista {
+    list-style: none;
+    font-size: 18px; }
+
+.redes {
+  text-align: center;
+  padding: 15px; }
+  .redes_titulo {
+    padding: 10px;
+    font-size: 30px; }
+  .redes_lista {
+    text-align: center;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap; }
+  .redes_logo {
+    color: #BF8D30; }
+
+.tienda_titulo {
+  font-size: 40px;
+  font-family: "Roboto Serif", serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px; }
+
+.tienda_lista {
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 15px; }
+
+.card_tienda {
+  margin: 15px;
+  border: solid 2px black;
+  flex-direction: column;
+  justify-content: space-around;
+  width: fit-content;
+  height: 400px; }
+  .card_tienda:hover {
+    box-shadow: -5px 7px 5px 1px rgba(191, 141, 48, 0.48);
+    -webkit-box-shadow: -5px 7px 5px 1px rgba(191, 141, 48, 0.48);
+    -moz-box-shadow: -5px 7px 5px 1px rgba(191, 141, 48, 0.48); }
+  .card_tienda img {
+    width: 270px;
+    height: 200px;
+    align-self: center; }
+  .card_tienda_body {
+    padding: 10px;
+    justify-content: space-around; }
+    .card_tienda_body_titulo {
+      text-align: center;
+      font-size: 25px;
+      padding: 5px; }
+    .card_tienda_body_precio {
+      font-size: 20px;
+      padding: 5px;
+      color: #BF8D30;
+      margin: 0; }
+
+.carrito_titulo {
+  font-size: 40px;
+  font-family: "Roboto Serif", serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px; }
+
+#carrito {
+  justify-content: center;
+  margin-bottom: 15px;
+  padding: 0; }
+
+.iva {
+  font-size: 16px; }
+
+.carrito_total_precio {
+  font-weight: bold;
+  margin: 0; }
+
+.botones_carrito {
+  align-items: center; }
+  .botones_carrito div {
+    padding: 5px;
+    margin: 5px; }
+
+.precio_final {
+  color: #BF8D30;
+  font-style: italic; }
+
+.botones_carrito_pagar {
+  text-decoration: none;
+  color: white; }
+  .botones_carrito_pagar:hover {
+    color: white; }
+
+.card_carrito {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: fit-content; }
+  .card_carrito_body_titulo {
+    text-align: center;
+    font-size: 25px;
+    padding: 5px; }
+  .card_carrito_body_precio {
+    font-size: 20px;
+    padding: 5px;
+    color: #BF8D30;
+    margin: 0; }
+  .card_carrito_body_cantidad {
+    font-size: 20px;
+    padding: 5px;
+    color: #BF8D30;
+    margin: 0; }
+
+.boton_carrito {
+  width: 50px;
+  height: 50px;
+  margin: 10px; }

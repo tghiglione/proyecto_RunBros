@@ -2,7 +2,6 @@
 'Roboto Serif', serif; PARA TITULOS
  */
 
-
 *{
    margin:0;
    padding: 0;
@@ -176,6 +175,11 @@ textarea{
     width: fit-content;
     height: 400px;
 }
+.card_tienda img{
+    width: 270px;
+    height: 200px;
+    align-self: center;
+}
 .card_tienda:hover{
     box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
     -webkit-box-shadow: -5px 7px 5px 1px rgba(191,141,48,0.48);
@@ -187,11 +191,6 @@ textarea{
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
-}
-.card_tienda img{
-    width: 270px;
-    height: 200px;
-    align-self: center;
 }
 .card_tienda_body_titulo{
     text-align: center;
@@ -208,7 +207,6 @@ textarea{
     color:#BF8D30;
     margin: 0;
 }
-
 .carrito_titulo{
     font-size: 40px;
     font-family:'Roboto Serif', serif;

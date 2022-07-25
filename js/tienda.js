@@ -1,25 +1,12 @@
-const zapatillasEnStock=[
-    {id:1,nombre:"Adidas eq21",img:"../imagenes/adidas-eq21.jpg", precio:10000, cantidad:1},
-    {id:2,nombre:"Adidas pv18",img:"../imagenes/adidas-pv18.jpg", precio:12000, cantidad:1},
-    {id:3,nombre:"Adidas samba",img:"../imagenes/adidas-samba.png", precio:13500, cantidad:1},
-    {id:4,nombre:"Nike air max 97",img:"../imagenes/air-max-97.jpg", precio:15000, cantidad:1},
-    {id:5,nombre:"Nike air max 1",img:"../imagenes/nike-air-max-1.jpg", precio:9000, cantidad:1},
-    {id:6,nombre:"Nike force",img:"../imagenes/nike-force.jpg", precio:11000, cantidad:1},
-    {id:7,nombre:"Puma r78",img:"../imagenes/puma-r78.jpg", precio:10000, cantidad:1},
-    {id:8,nombre:"Puma rider",img:"../imagenes/puma-rider.jpg", precio:9500, cantidad:1},
-    {id:9,nombre:"Puma xray",img:"../imagenes/puma-xray.jpg", precio:10500, cantidad:1},
-    {id:10,nombre:"Fila disruptor",img:"../imagenes/fila-disruptor.jpg", precio:8000, cantidad:1},
-    {id:11,nombre:"Fila rippler",img:"../imagenes/fila-rippler.jpg", precio:9000, cantidad:1},    
-    {id:12,nombre:"Fila trend",img:"../imagenes/fila-trend.jpg", precio:11000, cantidad:1}
-];
-
 const carrito= JSON.parse(localStorage.getItem("carrito")) || []; 
 
-const mostrarProductos= ()=>{                                   
+const mostrarProductos= async ()=>{                                   
     let contenedor=document.createElement("section");
     contenedor.className="container tienda_lista";
     let productosEnTienda=document.querySelector("#tienda");
-    zapatillasEnStock.forEach(producto=>{
+    const resp=await fetch("/stock.json");
+    const stock=await resp.json();
+    stock.forEach(producto=>{
         let div=document.createElement("div");
         div.innerHTML=`<div class="card" style="width: 18rem;">
         <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
@@ -34,10 +21,10 @@ const mostrarProductos= ()=>{
     productosEnTienda.appendChild(contenedor);
 };
 
-mostrarProductos();
-
-function agregarAlCarrito(id){                                  
-    let producto=zapatillasEnStock.find((elemento)=>elemento.id===id); 
+async function agregarAlCarrito(id){    
+    const resp=await fetch("/stock.json");
+    const stock=await resp.json();                              
+    let producto=stock.find((elemento)=>elemento.id===id); 
     let productoEnCarrito=carrito.find((elemento)=>elemento.id===id); 
     productoEnCarrito ? productoEnCarrito.cantidad++ : carrito.push(producto);
     Toastify({
@@ -95,15 +82,6 @@ function eliminarDelCarrito(id){
         })                     
 };
 
-function mostrarTotal(){
-    let total= calcularTotal();
-    const totalDeLaCompra=total.reduce((acumulador,elemento)=>acumulador+elemento.precio,0) *1.21 ;
-    let contenedor=document.querySelector(".carrito_titulo");
-    contenedor.innerHTML=`<h2 class="carrito_titulo">CARRITO DE COMPRAS</h2>
-    <h3 class="carrito_total_precio">El precio total de la compra es de: <span class="precio_final">$${totalDeLaCompra}</span></h3>
-    <span class="iva"><b> *El precio total incluye IVA*</b></span>`;
-};
-
 function calcularTotal(){
     let total=carrito.map((elemento)=>{
         return{
@@ -111,6 +89,15 @@ function calcularTotal(){
         }
     });
     return total;   
+};
+
+function mostrarTotal(){
+    let total= calcularTotal();
+    const totalDeLaCompra=total.reduce((acumulador,elemento)=>acumulador+elemento.precio,0) *1.21 ;
+    let contenedor=document.querySelector(".carrito_titulo");
+    contenedor.innerHTML=`<h2 class="carrito_titulo">CARRITO DE COMPRAS</h2>
+    <h3 class="carrito_total_precio">El precio total de la compra es de: <span class="precio_final">$${totalDeLaCompra}</span></h3>
+    <span class="iva"><b> *El precio total incluye IVA*</b></span>`;
 };
 
 function guardarCarrito(clave,valor){
@@ -127,7 +114,10 @@ function guardarLocal(array){
     }
 }; 
 
-document.addEventListener("DOMContentLoaded",mostrarCarrito());
+document.addEventListener("DOMContentLoaded",()=>{
+    mostrarProductos();
+    mostrarCarrito()
+});
 
 
 const botonVaciarCarrito=document.querySelector("#vaciar_carrito");

@@ -4,7 +4,7 @@ const mostrarProductos= async ()=>{
     let contenedor=document.createElement("section");
     contenedor.className="container tienda_lista";
     let productosEnTienda=document.querySelector("#tienda");
-    const resp=await fetch("/stock.json");
+    const resp=await fetch("../stock.json");
     const stock=await resp.json();
     stock.forEach(producto=>{
         let div=document.createElement("div");
@@ -24,7 +24,7 @@ const mostrarProductos= async ()=>{
 mostrarProductos();
 
 async function agregarAlCarrito(id){    
-    const resp=await fetch("/stock.json");
+    const resp=await fetch("../stock.json");
     const stock=await resp.json();                              
     let producto=stock.find((elemento)=>elemento.id===id); 
     let productoEnCarrito=carrito.find((elemento)=>elemento.id===id); 

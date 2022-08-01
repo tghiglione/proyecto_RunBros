@@ -1,11 +1,16 @@
 const carrito= JSON.parse(localStorage.getItem("carrito")) || []; 
 
+const retornarStock= async ()=>{
+    const resp=await fetch("../stock.json");
+    const stockJSON=await resp.json();
+    return stockJSON;
+};
+
 const mostrarProductos= async ()=>{                                   
     let contenedor=document.createElement("section");
     contenedor.className="container tienda_lista";
     let productosEnTienda=document.querySelector("#tienda");
-    const resp=await fetch("../stock.json");
-    const stock=await resp.json();
+    const stock= await retornarStock();
     stock.forEach(producto=>{
         let div=document.createElement("div");
         div.innerHTML=`<div class="card card_tienda" style="width: 18rem;">
@@ -24,8 +29,7 @@ const mostrarProductos= async ()=>{
 mostrarProductos();
 
 async function agregarAlCarrito(id){    
-    const resp=await fetch("../stock.json");
-    const stock=await resp.json();                              
+    const stock= await retornarStock();                             
     let producto=stock.find((elemento)=>elemento.id===id); 
     let productoEnCarrito=carrito.find((elemento)=>elemento.id===id); 
     productoEnCarrito ? productoEnCarrito.cantidad++ : carrito.push(producto);
@@ -80,7 +84,7 @@ function eliminarDelCarrito(id){
         
         mostrarCarrito();
         }
-        })                     
+    })                     
 };
 
 function calcularTotal(){
@@ -115,8 +119,7 @@ function guardarLocal(array){
     }
 }; 
 
-document.addEventListener("DOMContentLoaded", mostrarCarrito())
-
+document.addEventListener("DOMContentLoaded", mostrarCarrito());
 
 const botonVaciarCarrito=document.querySelector("#vaciar_carrito");
 botonVaciarCarrito.addEventListener('click',()=>{
@@ -182,8 +185,7 @@ botonPagar.addEventListener('click',()=>{
             icon:'error',
             showConfirmButton:false,
             timer:2000
-            
         });
     }
-    
 });
+
